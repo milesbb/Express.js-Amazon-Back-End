@@ -2,4 +2,4 @@
 
 Express and Mongo DB powered Amazon-type online shopping site backend.
 
-Products and reviews CRUD Api
+Products, reviews, users, carts CRUD Api
