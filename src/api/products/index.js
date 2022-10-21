@@ -234,6 +234,7 @@ productsRouter.put("/:productId/reviews/:reviewId", async (req, res, next) => {
         product.reviews[selectedReviewIndex] = {
           ...product.reviews[selectedReviewIndex],
           ...req.body,
+          _id: req.params.reviewId
         };
 
         await product.save();
