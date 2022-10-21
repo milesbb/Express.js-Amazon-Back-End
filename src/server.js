@@ -2,8 +2,13 @@ import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
 import listEndpoints from "express-list-endpoints";
-import productRouter from "./api/products";
-import reviewRouter from "./api/reviews";
+import productsRouter from "./api/products/index.js";
+import {
+  badRequestHandler,
+  genericServerErrorHandler,
+  notFoundHandler,
+  unauthorizedHandler,
+} from "./errorHandlers.js";
 
 const server = express();
 const port = process.env.PORT || 3001;
@@ -17,8 +22,7 @@ server.use(
 
 server.use(express.json());
 
-server.use("/products", productRouter);
-server.use("/reviews", reviewRouter);
+server.use("/products", productsRouter);
 
 server.use(badRequestHandler);
 server.use(unauthorizedHandler);
